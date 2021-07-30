@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="modest"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="package">
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 package"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="modest_static">
+				<Option output="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/libmodestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMyCORE_BUILD_DEBUG"/>
+					<Add directory="/Users/ap/Projects/python/selectolax/modest/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 modest_static"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="modest_static/fast">
+				<Option output="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/libmodestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMyCORE_BUILD_DEBUG"/>
+					<Add directory="/Users/ap/Projects/python/selectolax/modest/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 modest_static/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="package_source">
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 package_source"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="modest_shared">
+				<Option output="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/libmodestd.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMyCORE_BUILD_DEBUG"/>
+					<Add directory="/Users/ap/Projects/python/selectolax/modest/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 modest_shared"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="modest_shared/fast">
+				<Option output="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/libmodestd.dylib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ap/Projects/python/selectolax/modest/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMyCORE_BUILD_DEBUG"/>
+					<Add directory="/Users/ap/Projects/python/selectolax/modest/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 modest_shared/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/declaration.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/declaration.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/finder/finder.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/finder/finder.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/finder/match.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/finder/match.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/finder/pseudo_class.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/finder/pseudo_class.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/finder/thread.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/finder/thread.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/finder/type.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/finder/type.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/glue.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/glue.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/layer/layer.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/layer/layer.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/modest.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/modest.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/node/node.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/node/node.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/node/property.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/node/property.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/node/raw_property.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/node/raw_property.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/node/serialization.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/node/serialization.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/render/begin.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/render/begin.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/render/binding.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/render/binding.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/render/tree.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/render/tree.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/render/tree_node.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/render/tree_node.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/style/default.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/style/default.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/style/map.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/style/map.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/style/raw.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/style/raw.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/style/sheet.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/style/sheet.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/style/type.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/modest/style/type.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/incoming.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/incoming.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/myosi.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/myosi.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/mystring.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/mystring.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/mythread.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/mythread.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/thread_queue.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/thread_queue.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/avl_tree.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/avl_tree.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mchar_async.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mchar_async.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mcobject.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mcobject.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mcobject_async.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mcobject_async.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mcsimple.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mcsimple.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mcsync.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mcsync.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mctree.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mctree.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mhash.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycore/utils/mhash.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/an_plus_b.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/an_plus_b.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/check.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/check.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/convert.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/convert.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/default.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/default.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/entry.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/entry.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/entry_destroy.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/entry_destroy.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/init.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/init.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/parser.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/parser.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/serialization.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/serialization.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/state.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/declaration/state.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/entry.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/entry.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/media/init.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/media/init.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/media/state.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/media/state.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/mycss.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/mycss.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/mystring.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/mystring.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/namespace/init.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/namespace/init.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/namespace/parser.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/namespace/parser.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/namespace/serialization.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/namespace/serialization.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/namespace/state.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/namespace/state.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/parser.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/parser.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/init.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/init.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/parser.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/parser.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/parser_background.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/parser_image.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/parser_text_decoration.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/parser_url.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/serialization.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/serialization.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/shared.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/property/shared.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/function.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/function.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/function_parser.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/function_parser.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/init.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/init.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/list.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/list.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/parser.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/parser.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/pseudo.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/pseudo.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/serialization.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/serialization.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/state.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/state.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/value.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/selectors/value.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/stack.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/stack.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/stylesheet.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/stylesheet.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/tokenizer.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/tokenizer.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/tokenizer_end.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/tokenizer_end.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/tokenizer_global.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/tokenizer_global.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/color.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/color.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/color_parser.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/color_parser.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/consume.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/consume.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/destroy.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/destroy.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/image.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/image.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/serialization.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/serialization.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/units.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/units.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/values.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/mycss/values/values.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myencoding/detect.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myencoding/encoding.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myencoding/encoding.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myencoding/mystring.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myencoding/mystring.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/cmap.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/cmap.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/glyf.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/glyf.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/head.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/head.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/hhea.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/hhea.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/hmtx.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/hmtx.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/loca.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/loca.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/maxp.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/maxp.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/myfont.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/myfont.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/myosi.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/myosi.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/name.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/name.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/os_2.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/os_2.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/pclt.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/pclt.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/vhea.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/vhea.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/vmtx.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myfont/vmtx.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/callback.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/callback.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/charef.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/charef.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/data_process.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/data_process.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/myhtml.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/myhtml.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/mynamespace.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/mynamespace.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/mystring.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/mystring.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/parser.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/parser.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/rules.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/rules.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/serialization.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/serialization.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/stream.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/stream.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tag.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tag.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tag_init.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/token.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/token.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tokenizer.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tokenizer.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tokenizer_doctype.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tokenizer_doctype.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tokenizer_end.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tokenizer_end.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tokenizer_script.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tokenizer_script.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tree.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myhtml/tree.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myport/posix/mycore/io.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myport/posix/mycore/memory.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myport/posix/mycore/perf.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myport/posix/mycore/thread.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myport/posix/mycore/utils/mcsync.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myunicode/myosi.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myunicode/myosi.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/host.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/host.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/myosi.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/myosi.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/parser.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/parser.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/parser_end.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/path.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/path.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/punycode.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/punycode.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/scheme.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/scheme.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/serialization.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/serialization.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/url.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/url.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/utils.c">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/source/myurl/utils.h">
+			<Option target="modest_static"/>
+			<Option target="modest_shared"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/ap/Projects/python/selectolax/modest/modestConfig.cmake.in">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,10 @@
+/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/CMakeFiles/install/local.dir
+/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/CMakeFiles/install/strip.dir
+/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/CMakeFiles/install.dir
+/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/CMakeFiles/list_install_components.dir
+/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/CMakeFiles/package.dir
+/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/CMakeFiles/modest_static.dir
+/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/CMakeFiles/package_source.dir
+/Users/ap/Projects/python/selectolax/modest/cmake-build-debug/CMakeFiles/modest_shared.dir

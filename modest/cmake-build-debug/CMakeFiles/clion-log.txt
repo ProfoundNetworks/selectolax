@@ -1,0 +1,24 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/ap/Projects/python/selectolax/modest
+-- The C compiler identification is AppleClang 12.0.0.12000032
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Library/Developer/CommandLineTools/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Project version: 0.0.6
+-- Project modules: modest;mycore;mycss;myencoding;myfont;myhtml;myunicode;myurl
+-- Port sources:
+-- /Users/ap/Projects/python/selectolax/modest/source/myport/posix/mycore/io.c
+-- /Users/ap/Projects/python/selectolax/modest/source/myport/posix/mycore/memory.c
+-- /Users/ap/Projects/python/selectolax/modest/source/myport/posix/mycore/perf.c
+-- /Users/ap/Projects/python/selectolax/modest/source/myport/posix/mycore/thread.c
+-- /Users/ap/Projects/python/selectolax/modest/source/myport/posix/mycore/utils/mcsync.c
+-- Build with POSIX Threads
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/ap/Projects/python/selectolax/modest/cmake-build-debug
