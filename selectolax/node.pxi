@@ -131,7 +131,7 @@ cdef _find_nodes(HTMLParser parser, myhtml_tree_node_t *node, str query):
     myhtml_collection_destroy(collection)
     return result
 
-cdef bool _find_matches(HTMLParser parser, myhtml_tree_node_t *node, list selectors):
+cdef bool _find_matches(HTMLParser parser, myhtml_tree_node_t *node, tuple selectors):
     cdef myhtml_collection_t *collection
     cdef CSSSelector selector
     cpdef int collection_size
@@ -200,6 +200,17 @@ cdef class Selector:
         for node in self.nodes:
             node_text = node.text(deep=deep, separator=separator, strip=strip)
             if node_text and text in node_text:
+                return True
+        return False
+
+    def attribute_longer_than(self, str attribute, int length, str start  = None):
+        """Returns True any href attribute longer than a specified length."""
+        nodes = []
+        for node in self.nodes:
+            attr = node.attributes.get(attribute)
+            if attr and start and start in attr:
+                attr = attr[attr.find(start) + len(start):]
+            if len(attr) > length:
                 return True
         return False
 
@@ -528,13 +539,13 @@ cdef class Node:
         """Evaluate CSS selector against current node and its child nodes."""
         return _find_nodes(self.parser, self.node, query)
 
-    def any_css_matches(self, list selectors):
+    def any_css_matches(self, tuple selectors):
         """Returns True if any of CSS selectors matches a node"""
         return _find_matches(self.parser, self.node, selectors)
 
     def css_matches(self, str selector):
         """Returns True if CSS selector matches a node."""
-        return _find_matches(self.parser, self.node, [selector, ])
+        return _find_matches(self.parser, self.node, (selector, ))
 
     def css_first(self, str query, default=None, bool strict=False):
         """Evaluate CSS selector against current node and its child nodes."""
@@ -835,6 +846,37 @@ cdef class Node:
         selector : The `Selector` class.
         """
         return Selector(self, query)
+
+    def scripts_contain(self, str query):
+        if self.parser.cached_script_texts is None:
+            nodes = _find_nodes(self.parser, self.node, 'script')
+            text_nodes = []
+            for node in nodes:
+                node_text = node.text(deep=True)
+                if node_text:
+                    text_nodes.append(node_text)
+            self.parser.cached_script_texts = text_nodes
+
+        for text in self.parser.cached_script_texts:
+            if query in text:
+                return True
+        return False
+
+    def script_srcs_contain(self, tuple queries):
+        if self.parser.cached_script_srcs is None:
+            nodes = _find_nodes(self.parser, self.node, 'script')
+            src_nodes = []
+            for node in nodes:
+                node_src = node.attrs.get('src')
+                if node_src:
+                    src_nodes.append(node_src)
+            self.parser.cached_script_srcs = src_nodes
+
+        for text in self.parser.cached_script_srcs:
+            for query in queries:
+                if query in text:
+                    return True
+        return False
 
     def __repr__(self):
         return '<Node %s>' % self.tag
