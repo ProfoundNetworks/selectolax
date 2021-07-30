@@ -1780,10 +1780,10 @@ bool myhtml_insertion_mode_in_body(myhtml_tree_t* tree, myhtml_token_node_t* tok
 
             case MyHTML_TAG_IFRAME:
             {
-                tree->flags ^= (tree->flags & MyHTML_TREE_FLAGS_FRAMESET_OK);
-                tree->state_of_builder = MyHTML_TOKENIZER_STATE_RAWTEXT;
+//                tree->flags ^= (tree->flags & MyHTML_TREE_FLAGS_FRAMESET_OK);
+//                tree->state_of_builder = MyHTML_TOKENIZER_STATE_RAWTEXT;
 
-                myhtml_tree_generic_raw_text_element_parsing_algorithm(tree, token);
+                myhtml_tree_node_insert_html_element(tree, token);
                 break;
             }
                 
