@@ -1,4 +1,4 @@
-# cython: boundscheck=False, wraparound=False, nonecheck=False, language_level=3, embedsignature=False
+# cython: boundscheck=False, wraparound=False, nonecheck=False, language_level=3, embedsignature=True
 
 cdef extern from "myhtml/myhtml.h" nogil:
     ctypedef unsigned int mystatus_t
@@ -550,15 +550,14 @@ cdef extern from "modest/finder/finder.h" nogil:
 
 cdef class HTMLParser:
     cdef myhtml_tree_t *html_tree
-    cdef bint detect_encoding
-    cdef bint use_meta_tags
+    cdef public bint detect_encoding
+    cdef public bint use_meta_tags
     cdef myencoding_t _encoding
-    cdef unicode decode_errors
-    cdef bytes raw_html
+    cdef public unicode decode_errors
+    cdef public bytes raw_html
     cdef object cached_script_texts
     cdef object cached_script_srcs
 
-    # cpdef css(self, str query)
     cdef void _detect_encoding(self, char* html, size_t html_len) nogil
     cdef _parse_html(self, char* html, size_t html_len)
 

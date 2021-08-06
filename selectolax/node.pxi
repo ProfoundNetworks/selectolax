@@ -155,6 +155,8 @@ cdef bool _find_matches(HTMLParser parser, myhtml_tree_node_t *node, tuple selec
 cdef class Selector:
     """An advanced CSS selector that supports additional operations.
 
+    Think of it as a toolkit that mimicks some of the features of XPath.
+
     Please note, this is an experimental feature that can change in the future.
     """
     cdef Node node
@@ -204,7 +206,10 @@ cdef class Selector:
         return False
 
     def attribute_longer_than(self, str attribute, int length, str start  = None):
-        """Returns True any href attribute longer than a specified length."""
+        """Returns True any href attribute longer than a specified length.
+
+        Similar to `string-length` in XPath.
+        """
         nodes = []
         for node in self.nodes:
             attr = node.attributes.get(attribute)
@@ -615,14 +620,15 @@ cdef class Node:
             myhtml_node_insert_before(self.node, self.node.child)
         myhtml_node_delete(self.node)
 
-    def strip_tags(self, list tags):
+    def strip_tags(self, list tags, bool recursive = False):
         """Remove specified tags from the HTML tree.
 
         Parameters
         ----------
         tags : list
             List of tags to remove.
-
+        recursive : bool, default True
+            Whenever to delete all its child nodes
         Examples
         --------
 
@@ -635,7 +641,7 @@ cdef class Node:
         """
         for tag in tags:
             for element in self.css(tag):
-                element.decompose()
+                element.decompose(recursive=recursive)
 
     def unwrap_tags(self, list tags):
         """Unwraps specified tags from the HTML tree.
@@ -848,6 +854,16 @@ cdef class Node:
         return Selector(self, query)
 
     def scripts_contain(self, str query):
+        """Returns True if any of the script tags contain specified text.
+
+        Caches script tags on the first call to improve performance.
+
+        Parameters
+        ----------
+        query : str
+            The query to check.
+
+        """
         if self.parser.cached_script_texts is None:
             nodes = _find_nodes(self.parser, self.node, 'script')
             text_nodes = []
@@ -863,6 +879,15 @@ cdef class Node:
         return False
 
     def script_srcs_contain(self, tuple queries):
+        """Returns True if any of the script SRCs attributes contain on of the specified text.
+
+        Caches values on the first call to improve performance.
+
+        Parameters
+        ----------
+        queries : tuple of str
+
+        """
         if self.parser.cached_script_srcs is None:
             nodes = _find_nodes(self.parser, self.node, 'script')
             src_nodes = []
