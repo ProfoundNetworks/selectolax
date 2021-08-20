@@ -135,7 +135,7 @@ ctypedef fused str_or_Node:
 cdef class Node:
     """A class that represents HTML node (element)."""
     cdef myhtml_tree_node_t *node
-    cdef HTMLParser parser
+    cdef public HTMLParser parser
 
 
     cdef _init(self, myhtml_tree_node_t *node, HTMLParser parser):
@@ -312,7 +312,7 @@ cdef class Node:
         node
         """
 
-        cdef myhtml_tree_node_t*node = self.node.child
+        cdef myhtml_tree_node_t *node = self.node.child
         cdef Node next_node
 
         while node != NULL:
@@ -338,7 +338,6 @@ cdef class Node:
         -------
         node
         """
-        text = ""
         cdef Stack stack = Stack(_STACK_SIZE)
         cdef myhtml_tree_node_t* current_node = NULL;
         cdef Node next_node;

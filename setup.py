@@ -14,7 +14,7 @@ with io.open('README.rst', mode='rt', encoding='utf-8') as readme_file:
 USE_STATIC = False
 USE_CYTHON = False
 PLATFORM = 'windows_nt' if platform.system() == 'Windows' else 'posix'
-INCLUDE_LEXBOR = False
+INCLUDE_LEXBOR = bool(os.environ.get('USE_LEXBOR', False))
 
 try:
     from Cython.Build import cythonize
@@ -136,7 +136,7 @@ def make_extensions():
 
 setup(
     name='selectolax',
-    version='0.2.13',
+    version='0.2.14',
     description="Fast HTML5 parser with CSS selectors.",
     long_description=readme,
     author="Artem Golubin",
@@ -162,5 +162,8 @@ setup(
     tests_require=[
         'pytest',
     ],
+    project_urls={
+        "Source code": "https://github.com/rushter/selectolax",
+    },
     ext_modules=make_extensions(),
 )

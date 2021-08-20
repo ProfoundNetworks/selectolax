@@ -6,7 +6,8 @@
 .. image:: https://img.shields.io/pypi/v/selectolax.svg
         :target: https://pypi.python.org/pypi/selectolax
 
-A fast HTML5 parser with CSS selectors using `Modest engine <https://github.com/lexborisov/Modest/>`_.
+A fast HTML5 parser with CSS selectors using `Modest <https://github.com/lexborisov/Modest/>`_ and
+`Lexbor <https://github.com/lexbor/lexbor>`_ engines.
 
 
 Installation
@@ -17,7 +18,7 @@ From PyPI using pip:
 
         pip install selectolax 
 
-Development version from github:
+Development version from GitHub:
 
 .. code-block:: bash       
 
@@ -77,19 +78,46 @@ Basic examples
 
 
 * `Detailed overview <https://github.com/rushter/selectolax/blob/master/examples/walkthrough.ipynb>`_
- 
+
+Available backends
+------------------
+
+Selectolax supports two backends: ``Modest`` and ``Lexbor``. By default, all examples use the Modest backend.
+Most of the features between backends are almost identical, but there are still some differences.
+
+Currently, the ``Lexbor`` backend is in **beta** and missing some of the features.
+
+To use ``Lexbor`` backend, you need to compile development version of selectolax from GitHub.
+
+After compilation, just import the parser and use it in the similar way.
+
+.. code:: python
+
+    In [1]: from selectolax.lexbor import LexborHTMLParser
+
+    In [2]: html = """
+       ...: <title>Hi there</title>
+       ...: <div id="updated">2021-08-15</div>
+       ...: """
+
+    In [3]: parser = selectolax.lexbor.LexborHTMLParser(html)
+    In [4]: parser.root.css_first("#updated").text()
+    Out[4]: '2021-08-15'
+
+
 Simple Benchmark
 ----------------
 
-* Average of 10 experiments to parse and retrieve URLs from 800 Google SERP pages.
+* Extract title, links, scripts and a meta tag from main pages of top 754 domains. See ``examples/benchmark.py`` for more information.
 
-+------------+------------+--------------+
-| Package    | Time       | Memory (peak)|
-+============+============+==============+
-| selectolax | 2.38 sec.  | 768.11 MB    |
-+------------+------------+--------------+
-| lxml       | 18.67 sec. | 769.21 MB    |
-+------------+------------+--------------+
+============================  ==========
+Package                       Time
+============================  ==========
+Beautiful Soup (html.parser)  59.64 sec.
+lxml                          14.48 sec.
+selectolax (Modest)           2.396 sec.
+selectolax (Lexbor)           2.121 sec.
+============================  ==========
 
 Links
 -----
