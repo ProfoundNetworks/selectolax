@@ -2,12 +2,11 @@
 
 from cpython cimport bool
 
-include "selection.pxi"
-include "node.pxi"
+include "modest/selection.pxi"
+include "modest/node.pxi"
 include "utils.pxi"
 
 MAX_HTML_INPUT_SIZE = 8e+7
-_ENABLE_PARSING = True
 
 cdef class HTMLParser:
     """The HTML parser.
@@ -40,8 +39,8 @@ cdef class HTMLParser:
 
         if detect_encoding:
             self._detect_encoding(html_chars, html_len)
-        if _ENABLE_PARSING:
-            self._parse_html(html_chars, html_len)
+
+        self._parse_html(html_chars, html_len)
 
         self.raw_html = bytes_html
         self.cached_script_texts = None
@@ -211,6 +210,7 @@ cdef class HTMLParser:
         Parameters
         ----------
         strip : bool, default False
+            If true, calls ``str.strip()`` on each text part to remove extra white spaces.
         separator : str, default ''
             The separator to use when joining text from different nodes.
         deep : bool, default True
@@ -232,6 +232,7 @@ cdef class HTMLParser:
             List of tags to remove.
         recursive : bool, default True
             Whenever to delete all its child nodes
+
         Examples
         --------
 
@@ -341,9 +342,25 @@ cdef class HTMLParser:
     def css_matches(self, str selector):
         return self.root.css_matches(selector)
 
+    @staticmethod
+    cdef HTMLParser from_tree(
+            myhtml_tree_t * tree, bytes raw_html, bint detect_encoding, bint use_meta_tags, str decode_errors,
+            myencoding_t encoding
+    ):
+        obj = <HTMLParser> HTMLParser.__new__(HTMLParser)
+        obj.html_tree = tree
+        obj.raw_html = raw_html
+        obj.detect_encoding = detect_encoding
+        obj.use_meta_tags = use_meta_tags
+        obj.decode_errors = decode_errors
+        obj._encoding = encoding
+        obj.cached_script_texts = None
+        obj.cached_script_srcs = None
+        return obj
+
+
     def clone(self):
         """Clone the current tree."""
-        global _ENABLE_PARSING
         cdef myhtml_t* myhtml
         cdef mystatus_t status
         cdef myhtml_tree_t* html_tree
@@ -365,14 +382,16 @@ cdef class HTMLParser:
 
         node = myhtml_node_clone_deep(html_tree, self.html_tree.node_html)
         myhtml_tree_node_insert_root(html_tree, NULL, MyHTML_NAMESPACE_HTML)
-        myhtml_node_append_child(html_tree.node_html, node)
+        html_tree.node_html = node
 
-        _ENABLE_PARSING = False
-        cls = HTMLParser(self.raw_html, self.detect_encoding, self.use_meta_tags, self.decode_errors)
-        cls.html_tree = html_tree
-        cls._encoding = self._encoding
-        cls.html_tree = html_tree
-        _ENABLE_PARSING = True
+        cls = HTMLParser.from_tree(
+            html_tree,
+            self.raw_html,
+            self.detect_encoding,
+            self.use_meta_tags,
+            self.decode_errors,
+            self._encoding
+        )
         return cls
 
     def __dealloc__(self):

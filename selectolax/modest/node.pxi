@@ -231,6 +231,7 @@ cdef class Node:
         Parameters
         ----------
         strip : bool, default False
+            If true, calls ``str.strip()`` on each text part to remove extra white spaces.
         separator : str, default ''
             The separator to use when joining text from different nodes.
         deep : bool, default True
@@ -534,6 +535,7 @@ cdef class Node:
             List of tags to remove.
         recursive : bool, default True
             Whenever to delete all its child nodes
+
         Examples
         --------
 

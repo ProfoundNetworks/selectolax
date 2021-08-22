@@ -3,11 +3,14 @@ from difflib import SequenceMatcher
 
 import pytest
 from selectolax.parser import HTMLParser, Node
+from selectolax.lexbor import LexborHTMLParser, LexborNode
 
 """
 We'are testing only our own code.
 Many functionality are already tested in the Modest engine, so there is no reason to test every case.
 """
+
+_PARSERS_PARAMETRIZER = ("parser", (HTMLParser, LexborHTMLParser),)
 
 
 def test_encoding():
@@ -41,31 +44,67 @@ def test_encoding():
         assert type(e) is UnicodeEncodeError
 
 
-def test_parser():
-    html = HTMLParser("")
-    assert isinstance(html, HTMLParser)
+@pytest.mark.parametrize(*_PARSERS_PARAMETRIZER)
+def test_parser(parser):
+    html = parser("")
+    assert isinstance(html, parser)
 
     with pytest.raises(TypeError):
-        HTMLParser(123)
+        parser(123)
 
     with pytest.raises(TypeError):
-        HTMLParser("asd").css(123)
+        parser("asd").css(123)
 
 
-def test_nodes():
+@pytest.mark.parametrize(*_PARSERS_PARAMETRIZER)
+def test_nodes(parser):
     html = (
         '<div><p id="p1"></p><p id="p2"></p><p id="p3"><a>link</a></p>'
         '<p id="p4"></p><p id="p5">text</p><p id="p6"></p></div>'
     )
-    htmlp = HTMLParser(html)
+    htmlp = parser(html)
 
-    assert isinstance(htmlp.root, Node)
-    assert isinstance(htmlp.body, Node)
+    assert isinstance(htmlp.root, (Node, LexborNode))
+    assert isinstance(htmlp.body, (Node, LexborNode))
     html_output = htmlp.html
     assert len(html_output) >= len(html)
     assert SequenceMatcher(None, html, html_output).ratio() > 0.8
 
 
-def test_root_css():
-    tree = HTMLParser('test')
+@pytest.mark.parametrize(*_PARSERS_PARAMETRIZER)
+def test_root_css(parser):
+    tree = parser('test')
     assert len(tree.root.css('data')) == 0
+
+
+@pytest.mark.parametrize(*_PARSERS_PARAMETRIZER)
+def test_strip_tags_from_root(parser):
+    html = "<body><div></div><script></script></body>"
+    html_parser = parser(html)
+    html_parser.root.strip_tags(['div', 'script'])
+    assert html_parser.html == '<html><head></head><body></body></html>'
+
+    with pytest.raises(TypeError):
+        html_parser.strip_tags(1)
+
+
+@pytest.mark.parametrize(*_PARSERS_PARAMETRIZER)
+def test_clone(parser):
+    html_parser = parser("""<h1>Welcome</h1>""")
+    clone = html_parser.clone()
+    html_parser.root.css_first('h1').decompose()
+    del html_parser
+    assert clone.html == '<html><head></head><body><h1>Welcome</h1></body></html>'
+
+
+@pytest.mark.parametrize(*_PARSERS_PARAMETRIZER)
+def test_tags(parser):
+    html_parser = parser("""
+    <div><span><span></span></span></div>
+    <div><span></span></div>
+    <div><div></div></div>
+    <span></span>
+    <div></div>
+    """)
+    assert len(html_parser.tags('div')) == 5
+

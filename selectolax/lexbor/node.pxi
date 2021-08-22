@@ -1,10 +1,23 @@
 from libc.stdlib cimport free
 
 _TAG_TO_NAME = {
-    0x0005: "_doctype",
-    0x0002: "_text",
-    0x0004: "_comment",
+    0x0005: "- doctype",
+    0x0002: "-text",
+    0x0004: "-comment",
 }
+ctypedef fused str_or_LexborNode:
+    basestring
+    bytes
+    LexborNode
+
+cdef inline bytes to_bytes(str_or_LexborNode value):
+    cdef bytes bytes_val
+    if isinstance(value, (str, unicode)):
+        bytes_val = value.encode(_ENCODING)
+    elif isinstance(value, bytes):
+        bytes_val =  <char*> value
+    return bytes_val
+
 
 cdef class LexborNode:
     """A class that represents HTML node (element)."""
@@ -13,6 +26,11 @@ cdef class LexborNode:
         self.parser = parser
         self.node = node
         return self
+
+    @property
+    def child(self):
+        """Alias for the `first_child` property."""
+        return self.first_child
 
     @property
     def first_child(self):
@@ -83,11 +101,15 @@ cdef class LexborNode:
             return html
         return None
 
-    def text(self):
+    def text_lexbor(self):
+        """Returns the text of the node including text of all its child nodes.
+
+        Uses builtin method from lexbor.
+        """
+
         cdef size_t str_len = 0
         cdef lxb_char_t * text
 
-        # TODO: improve
         text = lxb_dom_node_text_content(self.node, &str_len)
         if <int>str_len == 0:
             raise RuntimeError("Can't extract text")
@@ -95,6 +117,56 @@ cdef class LexborNode:
         unicode_text = text.decode(_ENCODING)
         lxb_dom_document_destroy_text_noi(self.node.owner_document, text)
         return unicode_text
+
+    def text(self, bool deep=True, str separator='', bool strip=False):
+        """Returns the text of the node including text of all its child nodes.
+
+        Parameters
+        ----------
+        strip : bool, default False
+            If true, calls ``str.strip()`` on each text part to remove extra white spaces.
+        separator : str, default ''
+            The separator to use when joining text from different nodes.
+        deep : bool, default True
+            If True, includes text from all child nodes.
+
+        Returns
+        -------
+        text : str
+
+        """
+        cdef unsigned char * text
+        cdef lxb_dom_node_t* node = <lxb_dom_node_t*> self.node.first_child
+
+        if not deep:
+            container = TextContainer(separator, strip)
+            if self.node.type == LXB_DOM_NODE_TYPE_TEXT:
+                text = <unsigned char *> lexbor_str_data_noi(&(<lxb_dom_character_data_t *> self.node).data)
+                if text != NULL:
+                    py_text = text.decode(_ENCODING)
+                    container.append(py_text)
+
+            while node != NULL:
+                if node.type == LXB_DOM_NODE_TYPE_TEXT:
+                    text = <unsigned char *> lexbor_str_data_noi(&(<lxb_dom_character_data_t *> self.node).data)
+                    if text != NULL:
+                        py_text = text.decode(_ENCODING)
+                        container.append(py_text)
+                node = node.next
+            return container.text
+        else:
+            container = TextContainer(separator, strip)
+            if self.node.type == LXB_DOM_NODE_TYPE_TEXT:
+                text = <unsigned char *> lexbor_str_data_noi(&(<lxb_dom_character_data_t *> self.node).data)
+                if text != NULL:
+                    container.append(text.decode(_ENCODING))
+
+            lxb_dom_node_simple_walk(
+                <lxb_dom_node_t *> self.node,
+                <lxb_dom_node_simple_walker_f>text_callback,
+                <void *>container
+            )
+            return container.text
 
     def css(self, str query):
         """Evaluate CSS selector against current node and its child nodes.
@@ -130,6 +202,7 @@ cdef class LexborNode:
         -------
         selector : `LexborNode` object
         """
+        # TODO: This can be improved.
         results = self.css(query)
         n_results = len(results)
         if n_results > 0:
@@ -138,6 +211,16 @@ cdef class LexborNode:
             return results[0]
         return default
 
+    def any_css_matches(self, tuple selectors):
+        """Returns True if any of CSS selectors matches a node"""
+        for selector in selectors:
+            if self.parser.selector.any_matches(selector,  self):
+                return True
+        return False
+
+    def css_matches(self, str selector):
+        """Returns True if CSS selector matches a node."""
+        return self.parser.selector.any_matches(selector, self)
 
     def __repr__(self):
         return '<LexborNode %s>' % self.tag
@@ -188,6 +271,31 @@ cdef class LexborNode:
         else:
             lxb_dom_node_destroy_deep(<lxb_dom_node_t *>self.node)
 
+    def strip_tags(self, list tags, bool recursive = False):
+        """Remove specified tags from the HTML tree.
+
+        Parameters
+        ----------
+        tags : list
+            List of tags to remove.
+        recursive : bool, default True
+            Whenever to delete all its child nodes
+
+        Examples
+        --------
+
+        >>> tree = LexborHTMLParser('<html><head></head><body><script></script><div>Hello world!</div></body></html>')
+        >>> tags = ['head', 'style', 'script', 'xmp', 'iframe', 'noembed', 'noframes']
+        >>> tree.strip_tags(tags)
+        >>> tree.html
+        '<html><body><div>Hello world!</div></body></html>'
+
+        """
+        for tag in tags:
+            for element in self.css(tag):
+                element.decompose(recursive=recursive)
+
+
     @property
     def attributes(self):
         """Get all attributes that belong to the current node.
@@ -236,7 +344,7 @@ cdef class LexborNode:
         Examples
         --------
 
-        >>> tree = HTMLParser("<div id='a'></div>")
+        >>> tree = LexborHTMLParser("<div id='a'></div>")
         >>> node = tree.css_first('div')
         >>> node.attrs
         <div attributes, 1 items>
@@ -300,6 +408,60 @@ cdef class LexborNode:
             yield next_node
             node = node.next
 
+
+    def unwrap(self):
+        """Replace node with whatever is inside this node.
+
+        Examples
+        --------
+
+        >>>  tree = LexborHTMLParser("<div>Hello <i>world</i>!</div>")
+        >>>  tree.css_first('i').unwrap()
+        >>>  tree.html
+        '<html><head></head><body><div>Hello world!</div></body></html>'
+
+        """
+        if self.node.first_child == NULL:
+            return
+        cdef lxb_dom_node_t* next_node;
+        cdef lxb_dom_node_t* current_node;
+
+        if self.node.first_child.next != NULL:
+            current_node = self.node.first_child
+            next_node = current_node.next
+
+            while next_node != NULL:
+                next_node = current_node.next
+                lxb_dom_node_insert_before(self.node, current_node)
+                current_node = next_node
+        else:
+            lxb_dom_node_insert_before(self.node, self.node.first_child)
+        lxb_dom_node_destroy(<lxb_dom_node_t *> self.node)
+
+    def unwrap_tags(self, list tags):
+        """Unwraps specified tags from the HTML tree.
+
+        Works the same as the ``unwrap`` method, but applied to a list of tags.
+
+        Parameters
+        ----------
+        tags : list
+            List of tags to remove.
+
+        Examples
+        --------
+
+        >>> tree = LexborHTMLParser("<div><a href="">Hello</a> <i>world</i>!</div>")
+        >>> tree.body.unwrap_tags(['i','a'])
+        >>> tree.body.html
+        '<body><div>Hello world!</div></body>'
+        """
+
+        for tag in tags:
+            for element in self.css(tag):
+                element.unwrap()
+
+
     def traverse(self, include_text=False):
         """Iterate over all child and next nodes starting from the current level.
 
@@ -313,7 +475,7 @@ cdef class LexborNode:
         node
         """
         cdef lxb_dom_node_t * root = self.node
-        cdef lxb_dom_node_t * node = root.first_child
+        cdef lxb_dom_node_t * node = root
         cdef LexborNode lxb_node
 
         while node != NULL:
@@ -331,13 +493,273 @@ cdef class LexborNode:
                     break
                 node = node.next
 
+    def replace_with(self, str_or_LexborNode value):
+        """Replace current Node with specified value.
+
+        Parameters
+        ----------
+        value : str, bytes or Node
+            The text or Node instance to replace the Node with.
+            When a text string is passed, it's treated as text. All HTML tags will be escaped.
+            Convert and pass the ``Node`` object when you want to work with HTML.
+            Does not clone the ``Node`` object.
+            All future changes to the passed ``Node`` object will also be taken into account.
+
+        Examples
+        --------
+
+        >>> tree = LexborHTMLParser('<div>Get <img src="" alt="Laptop"></div>')
+        >>> img = tree.css_first('img')
+        >>> img.replace_with(img.attributes.get('alt', ''))
+        >>> tree.body.child.html
+        '<div>Get Laptop</div>'
+
+        >>> html_parser = LexborHTMLParser('<div>Get <span alt="Laptop"><img src="/jpg"> <div></div></span></div>')
+        >>> html_parser2 = LexborHTMLParser('<div>Test</div>')
+        >>> img_node = html_parser.css_first('img')
+        >>> img_node.replace_with(html_parser2.body.child)
+        '<div>Get <span alt="Laptop"><div>Test</div> <div></div></span></div>'
+        """
+        cdef lxb_dom_node_t * new_node
+
+        if isinstance(value, (str, bytes, unicode)):
+            bytes_val = to_bytes(value)
+            new_node = <lxb_dom_node_t *> lxb_dom_document_create_text_node(
+                    &self.parser.document.dom_document,
+                    <lxb_char_t *> bytes_val, len(bytes_val)
+            )
+            if new_node == NULL:
+                raise SelectolaxError("Can't create a new node")
+            lxb_dom_node_insert_before(self.node,  new_node)
+            lxb_dom_node_destroy(<lxb_dom_node_t *> self.node)
+        elif isinstance(value, LexborNode):
+            new_node = lxb_dom_document_import_node(
+                &self.parser.document.dom_document,
+                <lxb_dom_node_t *> value.node,
+                <bint> True
+            )
+            if new_node == NULL:
+                raise SelectolaxError("Can't create a new node")
+            lxb_dom_node_insert_before(self.node, <lxb_dom_node_t *> new_node)
+            lxb_dom_node_destroy(<lxb_dom_node_t *> self.node)
+        else:
+            raise SelectolaxError("Expected a string or LexborNode instance, but %s found" % type(value).__name__)
 
 
-cdef lxb_status_t css_finder_callback(lxb_dom_node_t *node, lxb_css_selector_specificity_t *spec, void *ctx):
-    cdef LexborNode lxb_node
+    def insert_before(self, str_or_LexborNode value):
+        """
+        Insert a node before the current Node.
+
+        Parameters
+        ----------
+        value : str, bytes or Node
+            The text or Node instance to insert before the Node.
+            When a text string is passed, it's treated as text. All HTML tags will be escaped.
+            Convert and pass the ``Node`` object when you want to work with HTML.
+            Does not clone the ``Node`` object.
+            All future changes to the passed ``Node`` object will also be taken into account.
+
+        Examples
+        --------
+
+        >>> tree = LexborHTMLParser('<div>Get <img src="" alt="Laptop"></div>')
+        >>> img = tree.css_first('img')
+        >>> img.insert_before(img.attributes.get('alt', ''))
+        >>> tree.body.child.html
+        '<div>Get Laptop<img src="" alt="Laptop"></div>'
+
+        >>> html_parser = LexborHTMLParser('<div>Get <span alt="Laptop"><img src="/jpg"> <div></div></span></div>')
+        >>> html_parser2 = LexborHTMLParser('<div>Test</div>')
+        >>> img_node = html_parser.css_first('img')
+        >>> img_node.insert_before(html_parser2.body.child)
+        <div>Get <span alt="Laptop"><div>Test</div><img src="/jpg"> <div></div></span></div>'
+        """
+        cdef lxb_dom_node_t * new_node
+
+        if isinstance(value, (str, bytes, unicode)):
+            bytes_val = to_bytes(value)
+            new_node = <lxb_dom_node_t *> lxb_dom_document_create_text_node(
+                    &self.parser.document.dom_document,
+                    <lxb_char_t *> bytes_val, len(bytes_val)
+            )
+            if new_node == NULL:
+                raise SelectolaxError("Can't create a new node")
+            lxb_dom_node_insert_before(self.node,  new_node)
+        elif isinstance(value, LexborNode):
+            new_node = lxb_dom_document_import_node(
+                &self.parser.document.dom_document,
+                <lxb_dom_node_t *> value.node,
+                <bint> True
+            )
+            if new_node == NULL:
+                raise SelectolaxError("Can't create a new node")
+            lxb_dom_node_insert_before(self.node, <lxb_dom_node_t *> new_node)
+        else:
+            raise SelectolaxError("Expected a string or LexborNode instance, but %s found" % type(value).__name__)
+
+    def insert_after(self, str_or_LexborNode value):
+        """
+        Insert a node after the current Node.
+
+        Parameters
+        ----------
+        value : str, bytes or Node
+            The text or Node instance to insert after the Node.
+            When a text string is passed, it's treated as text. All HTML tags will be escaped.
+            Convert and pass the ``Node`` object when you want to work with HTML.
+            Does not clone the ``Node`` object.
+            All future changes to the passed ``Node`` object will also be taken into account.
+
+        Examples
+        --------
+
+        >>> tree = LexborHTMLParser('<div>Get <img src="" alt="Laptop"></div>')
+        >>> img = tree.css_first('img')
+        >>> img.insert_after(img.attributes.get('alt', ''))
+        >>> tree.body.child.html
+        '<div>Get <img src="" alt="Laptop">Laptop</div>'
+
+        >>> html_parser = LexborHTMLParser('<div>Get <span alt="Laptop"><img src="/jpg"> <div></div></span></div>')
+        >>> html_parser2 = LexborHTMLParser('<div>Test</div>')
+        >>> img_node = html_parser.css_first('img')
+        >>> img_node.insert_after(html_parser2.body.child)
+        <div>Get <span alt="Laptop"><img src="/jpg"><div>Test</div> <div></div></span></div>'
+        """
+        cdef lxb_dom_node_t * new_node
+
+        if isinstance(value, (str, bytes, unicode)):
+            bytes_val = to_bytes(value)
+            new_node = <lxb_dom_node_t *> lxb_dom_document_create_text_node(
+                    &self.parser.document.dom_document,
+                    <lxb_char_t *> bytes_val, len(bytes_val)
+            )
+            if new_node == NULL:
+                raise SelectolaxError("Can't create a new node")
+            lxb_dom_node_insert_after(self.node,  new_node)
+        elif isinstance(value, LexborNode):
+            new_node = lxb_dom_document_import_node(
+                &self.parser.document.dom_document,
+                <lxb_dom_node_t *> value.node,
+                <bint> True
+            )
+            if new_node == NULL:
+                raise SelectolaxError("Can't create a new node")
+            lxb_dom_node_insert_after(self.node, <lxb_dom_node_t *> new_node)
+        else:
+            raise SelectolaxError("Expected a string or LexborNode instance, but %s found" % type(value).__name__)
+
+    @property
+    def raw_value(self):
+        """Return the raw (unparsed, original) value of a node.
+
+        Currently, works on text nodes only.
+
+        Returns
+        -------
+
+        raw_value : bytes
+
+        Examples
+        --------
+
+        >>> html_parser = LexborHTMLParser('<div>&#x3C;test&#x3E;</div>')
+        >>> selector = html_parser.css_first('div')
+        >>> selector.child.html
+        '&lt;test&gt;'
+        >>> selector.child.raw_value
+        b'&#x3C;test&#x3E;'
+        """
+        raise SelectolaxError("This features is not supported by the lexbor backend. Please use Modest backend.")
+
+    def scripts_contain(self, str query):
+        """Returns True if any of the script tags contain specified text.
+
+        Caches script tags on the first call to improve performance.
+
+        Parameters
+        ----------
+        query : str
+            The query to check.
+
+        """
+        if self.parser.cached_script_texts is None:
+            nodes = self.parser.selector.find('script', self)
+            text_nodes = []
+            for node in nodes:
+                node_text = node.text(deep=True)
+                if node_text:
+                    text_nodes.append(node_text)
+            self.parser.cached_script_texts = text_nodes
+
+        for text in self.parser.cached_script_texts:
+            if query in text:
+                return True
+        return False
+
+    def script_srcs_contain(self, tuple queries):
+        """Returns True if any of the script SRCs attributes contain on of the specified text.
+
+        Caches values on the first call to improve performance.
+
+        Parameters
+        ----------
+        queries : tuple of str
+
+        """
+        if self.parser.cached_script_srcs is None:
+            nodes = self.parser.selector.find('script', self)
+            src_nodes = []
+            for node in nodes:
+                node_src = node.attrs.get('src')
+                if node_src:
+                    src_nodes.append(node_src)
+            self.parser.cached_script_srcs = src_nodes
+
+        for text in self.parser.cached_script_srcs:
+            for query in queries:
+                if query in text:
+                    return True
+        return False
+
+    def remove(self, bool recursive=True):
+        """An alias for the decompose method."""
+        self.decompose(recursive)
+
+    def __eq__(self, other):
+        if isinstance(other, str):
+            return self.html == other
+        if not isinstance(other, LexborNode):
+            return False
+        return self.html == other.html
+
+cdef class TextContainer:
+    cdef public str text
+    cdef public str separator
+    cdef public bool strip
+
+    def __init__(self, str separator = '', bool strip = False):
+        self.text = ""
+        self.separator = separator
+        self.strip = strip
+
+    def append(self, node_text):
+        if self.strip:
+            self.text += node_text.strip() + self.separator
+        else:
+            self.text += node_text + self.separator
+
+
+cdef lexbor_action_t text_callback(lxb_dom_node_t *node, void *ctx):
+    cdef unsigned char *text;
+    cdef lxb_tag_id_t tag_id = lxb_dom_node_tag_id_noi(node)
+    if tag_id != LXB_TAG__TEXT:
+        return LEXBOR_ACTION_OK
+
+    text = <unsigned char*> lexbor_str_data_noi(&(<lxb_dom_text_t *> node).char_data.data)
+    if not text:
+        return LEXBOR_ACTION_OK
+    py_str = text.decode(_ENCODING)
     cdef object cls
     cls = <object> ctx
-    lxb_node = LexborNode()
-    lxb_node._cinit(<lxb_dom_node_t *> node, cls.current_node.parser)
-    cls.results.append(lxb_node)
-
+    cls.append(py_str)
+    return LEXBOR_ACTION_OK

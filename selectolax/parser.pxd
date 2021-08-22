@@ -434,6 +434,8 @@ cdef extern from "myhtml/myhtml.h" nogil:
     myhtml_tree_attr_t * myhtml_attribute_add(myhtml_tree_node_t *node, const char *key, size_t key_len,
                                               const char *value, size_t value_len, myencoding_t encoding)
 
+    myhtml_tree_node_t * myhtml_node_insert_to_appropriate_place(myhtml_tree_node_t *target, myhtml_tree_node_t *node)
+
 cdef extern from "myhtml/tree.h" nogil:
     myhtml_tree_node_t * myhtml_tree_node_clone(myhtml_tree_node_t* node)
     myhtml_tree_node_t * myhtml_tree_node_insert_root(myhtml_tree_t* tree, myhtml_token_node_t* token,
@@ -561,6 +563,11 @@ cdef class HTMLParser:
 
     cdef void _detect_encoding(self, char* html, size_t html_len) nogil
     cdef _parse_html(self, char* html, size_t html_len)
+    @staticmethod
+    cdef HTMLParser from_tree(
+        myhtml_tree_t * tree, bytes raw_html, bint detect_encoding, bint use_meta_tags, str decode_errors,
+        myencoding_t encoding
+    )
 
 
 cdef class Stack:
