@@ -1,6 +1,23 @@
 selectolax Changelog
 ====================
 
+Version 0.3.1
+--------------
+
+Released
+
+- Fix  ``setup.py`` for Windows
+
+
+Version 0.3.0
+--------------
+
+Released
+
+- Added ``lexbor`` backend
+- Fix cloning for `Modest` backend
+
+
 Version 0.2.14
 --------------
 
