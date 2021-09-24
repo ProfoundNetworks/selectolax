@@ -1,12 +1,4 @@
-if (!UNIX AND WIN32)
-    if(${CMAKE_CL_64})
-        add_definitions(-D_WIN64)
-    else()
-        add_definitions(-D_WIN32)
-    endif()
-endif()
-
-if(${CMAKE_C_COMPILER_ID} STREQUAL "MSVC")
+if("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
     if(NOT DEFINED LEXBOR_OPTIMIZATION_LEVEL)
         set(LEXBOR_OPTIMIZATION_LEVEL "/O2")
     endif()

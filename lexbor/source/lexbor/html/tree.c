@@ -211,7 +211,7 @@ lxb_html_tree_token_callback(lxb_html_tokenizer_t *tkz,
     return token;
 }
 
-/* TODO: not complite!!! */
+/* TODO: not complete!!! */
 lxb_status_t
 lxb_html_tree_stop_parsing(lxb_html_tree_t *tree)
 {
@@ -1667,7 +1667,7 @@ lxb_html_tree_html_integration_point(lxb_dom_node_t *node)
                                              (const lxb_char_t *) "encoding",
                                              8);
         if (attr == NULL || attr->value == NULL) {
-            return NULL;
+            return false;
         }
 
         if (attr->value->length == 9

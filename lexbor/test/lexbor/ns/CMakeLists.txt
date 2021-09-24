@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.12)
 
 ################
 ## Search and Includes
@@ -13,5 +13,5 @@ file(GLOB_RECURSE TEST_LEXBOR_NS_SOURCES "*.c")
 ################
 ## Create tests
 #########################
-EXECUTABLE_LIST("lexbor_ns_" "${TEST_LEXBOR_NS_SOURCES}" ${TEST_UNIT_LIB_NAME} ${LEXBOR_LIB_NAME})
+EXECUTABLE_LIST("lexbor_ns_" "${TEST_LEXBOR_NS_SOURCES}" ${TEST_DEPS_LIB_NAMES})
 APPEND_TESTS("lexbor_ns_" "${TEST_LEXBOR_NS_SOURCES}")
