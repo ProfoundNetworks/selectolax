@@ -15,7 +15,7 @@ cdef class LexborHTMLParser:
 
     Use this class to parse raw HTML.
 
-    This parser mimics most of the stuff from ``HTMLParser`` but not inherits in directly.
+    This parser mimics most of the stuff from ``HTMLParser`` but not inherits it directly.
 
     Parameters
     ----------
@@ -144,7 +144,10 @@ cdef class LexborHTMLParser:
     @property
     def html(self):
         """Return HTML representation of the page."""
-        return self.root.html
+        if self.document == NULL:
+            return None
+        node = LexborNode()._cinit(<lxb_dom_node_t *> &self.document.dom_document, self)
+        return node.html
 
     def css(self, str query):
         """A CSS selector.

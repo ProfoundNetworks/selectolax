@@ -289,7 +289,11 @@ cdef class HTMLParser:
     @property
     def html(self):
         """Return HTML representation of the page."""
-        return self.root.html
+        if self.html_tree and self.html_tree.document:
+            node = Node()
+            node._init(self.html_tree.document, self)
+            return node.html
+        return None
 
     def select(self, query=None):
         """Select nodes give a CSS selector.
@@ -381,7 +385,7 @@ cdef class HTMLParser:
             raise RuntimeError("Can't init MyHTML Tree object.")
 
         node = myhtml_node_clone_deep(html_tree, self.html_tree.node_html)
-        myhtml_tree_node_insert_root(html_tree, NULL, MyHTML_NAMESPACE_HTML)
+        myhtml_tree_node_add_child(html_tree.document, node)
         html_tree.node_html = node
 
         cls = HTMLParser.from_tree(

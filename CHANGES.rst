@@ -1,6 +1,30 @@
 selectolax Changelog
 ====================
 
+Version 0.3.4
+--------------
+
+Released
+
+- Fix ``HTMLParser.html``
+
+
+Version 0.3.3
+--------------
+
+Released
+
+- Use `document` for the ``HTMLParser.html``, ``LexborHTMLParser.html``  root properties
+
+Version 0.3.2
+--------------
+
+Released
+
+- Fix  ``selector`` method for lexbor
+- Improve text extraction for lexbor
+
+
 Version 0.3.1
 --------------
 
